@@ -2,8 +2,8 @@
 
 ### Installation
 
-- Install phy
-- Install ibl environment
+- Install [phy](https://github.com/cortex-lab/phy?tab=readme-ov-file#installation-instructions)
+- Install [ibl compatible environment](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/installation/README.md)
 
 
 ### 1. Convert spikesorted output to alf format
@@ -11,7 +11,7 @@ If your spikesorting output is not already in the ibl alf format you will need t
 in phylib
 
 The phylib alf conversion process renames the files such that they follow the naming convention used in the IBL
-and also converts the units of the amplitude values in spikesorting output from arbitrary units to volts. 
+and also converts the units of the amplitude values in the spikesorting output from arbitrary units to volts. 
 
 The ibl metrics use a median amplitude threshold based on volts so this is why this conversion is necessary to compute
 the metrics.
@@ -27,16 +27,16 @@ If you already have files with the following names then your output has already 
 
 If a clusters.metrics.pqt file also already exists then the metrics have already been computed and you can skip to section 3
 
-If not the following code can be used to convert your spikesorting output
+If not, the following code can be used to convert your spikesorting output
 ```python
 from pathlib import Path
 from ibllib.ephys.spikes import ks2_to_alf
 from ibllib.pipes.ephys_tasks import SpikeSorting
 
 # Path to your spikesorting data
-ks_path = Path('')
+ks_path = Path('/Users/admin/ks_data')
 # Path to your raw ephys ap spikeglx data
-ap_path = Path('')
+ap_path = Path('/Users/admin/raw_data')
 ap_file = next(ap_path.rglob('*.ap.*bin'), None)
 # Path to save alf converted data, must be different from the original spikesorting data
 out_path = ks_path.parent.joinpath('alf')
@@ -66,9 +66,8 @@ qc_file, _, _ = CellQCMixin.compute_cell_qc(out_path)
 ```
 
 ### 3. Copy the metrics to the original spikesorting output (optional)
-You can copy the computed ibl metrics to your original spikesorting folder. This will allow you to view your data. The data
-will be the same with the only difference being that the units of the waveforms and spike amps and clusters will differ. 
-They will be in volts rather than the units output by the spikesorter
+You can copy the computed ibl metrics to your original spikesorting folder. This will allow you to view your original spikesorted data. (The only difference between the alf 
+converted data is that the units of the waveforms, spike amplitudes and cluster amplitudes will differ, they will be in volts rather than the units output by the spikesorter)
 
 ```python
 import shutil
@@ -80,9 +79,9 @@ shutil.copy(qc_file, ks_path.joinpath(qc_file.name))
 To display the ibl metrics in the cluster view when launching phy you will need to add the plugin `ibl_metrics.py` provided in 
 this folder to your phy config path. This can be done in the following way
 
-Copy the `ibl_metrics.py` file into the folder`~/.phy/plugins/. If the `plugins` folder does not exist you may have to create it
+Copy the `ibl_metrics.py` file into the folder `~/.phy/plugins/`. If the `plugins` folder does not exist you may have to create it.
 
-Edit the  `~/.phy/phy_config.py` to include the following line
+Edit the  `~/.phy/phy_config.py` to include the following line at the end of the file
 ```python
 c.TemplateGUI.plugins = ['IBLMetricsPlugin']
 ```
