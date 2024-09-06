@@ -1,9 +1,10 @@
-# Assignment aligning spikes to histology
+# Assignment aligning spikes to histology (2.5.2)
 
 ## Prerequisites
-- Install ibl environment
-- Worked through section 2 and 3 in download data instructions
-- Alternatively can download sample data from here
+- Install [ibl compatible environment](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/installation/README.md)
+- Download sample data
+  - Either by following [data download instructions] from the course (https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/data_access)
+  - or downloading the ephys_alignment_sample_dataset from [here](https://ibl.flatironinstitute.org/public/)
 
 
 ## Launch GUI
@@ -21,7 +22,13 @@ Once you have selected the folder click the Get Data to load the data into the G
 If you are using the dataset that has been used throughout the course, the location of the input data can be found
 by typing the following into an ipython terminal
 ```python
+from one.api import ONE
+one = ONE()
+pid = 'dab512bd-a02d-4c1f-8dbc-9155a163efc0'
 
+ss_file = one.load_dataset(eid, 'spikes.times.npy', collection=f'alf/{pname}/pykilosort', download_only=True)
+alf_folder = ss_file.parent
+print(alf_folder)
 ```
 
 ## Objective
@@ -29,4 +36,4 @@ Use the guidance from the lecture to align the example sessions
 
 
 ## Further resources
-- iblapps wiki
+- [iblapps alignment gui wiki](https://github.com/int-brain-lab/iblapps/wiki)
