@@ -59,8 +59,24 @@ Here we show how to download the extra histology code
 # also need to make the xyz_picks.json file using the picks that exist on the alyx database
 
 # Can download the lfp files
+
+one.load_object(eid, '')
+
+```
+The rms ap spectra we will extract from the raw data
+TODO make this such that the code in extract_rmsmap is in ibllib so not duplicated, allow the option to only compute
+on a subset of windows
+```
+from atlaselectrophysiology.extract_files import extract_rmsmap
+import spikeglx
+
+extract_rmsmap
+
+
+
 ```
 
-
 ## More info
-Here we have provided code to 
+Here we have provided code to download the data necessary for the course. To explore more about the IBL data you can explore
+the following resources
+- links to the ONE tutorials etc
