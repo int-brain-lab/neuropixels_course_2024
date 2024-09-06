@@ -1,23 +1,17 @@
 # Downloading IBL data
 
 ## Prerequisites
-- Installation of ibl compatible environment (link here to other read me)
-- Space of around 100Gb to download raw data
+- Installation of [ibl compatible environment](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/installation/README.md)
+- Space of ~50Gb on your local computer to download the data
 
 ## Example neuropixel recordings
-For the course we will use data from two neuropixels recordings collected as part of the IBL brain-wide-map project.
+For the course we will use data from a neuropixels recording collected as part of the IBL [brainwide map](https://doi.org/10.1101/2023.07.04.547681) and [reproducible ephys](https://doi.org/10.1101/2022.05.09.491042) projects. 
 
-The first insertion 
+The selected probe insertion passes through posterior parietal cortex, hippocampus, and thalamus and has a unique probe identifier of `pid = 'dab512bd-a02d-4c1f-8dbc-9155a163efc0'`
 
-The second insertion passes through. This insertion contains a few artefacts midway through the recording. We have chosen
-this insertion to showcase some of the nuances of spikesorting preprocessing methods that will be introduced during the course.
+You can explore data from the this insertion using the IBL [visualisation website](https://viz.internationalbrainlab.org/app?dset=bwm&pid=dab512bd-a02d-4c1f-8dbc-9155a163efc0&tid=0&cid=534&qc=0&spikesorting=ss_2024-05-06)
 
-You can explore data from the two insertions using the IBL visualisation website
-- Insertion 1
-- Insertion 2
-
-The example code below will show how to download data for the first insertion. You can download the data for the second insertion
-by replacing the `pid` variable in the code below
+The example code below will show how to download data for this insertion that is needed for the assignments during the course.
 
 ## Instantiate modules
 Activate your iblenv environment (`conda activate iblenv`) and launch an ipython terminal `ipython`
@@ -25,58 +19,70 @@ Activate your iblenv environment (`conda activate iblenv`) and launch an ipython
 from one.api import ONE
 from brainbox.io.one import SpikeSortingLoader
 
-# define insertion, here w
-pid = ''
+# define insertion
+pid = 'dab512bd-a02d-4c1f-8dbc-9155a163efc0'
 one = ONE()
 ssl = SpikeSortingLoader(pid=pid, one=one)
 ```
 
 
 ## Download raw data 
-This code snippet shows how to download the raw ap data which is required for assignments 1.1 and 1.2.
+This code snippet shows how to download the raw ap data which is required for assignments 1.8.2 and 1.8.3.
 
-N.B. The raw data for each insertion is large typically between 50-80Gb. You will need to make sure you have enough disk space
-and the download will also take a while
+N.B. The raw data for each insertion is large, typically between 50 - 80 Gb. You will need to make sure you have enough disk space
+and note that the download may also take a while.
 ```python
 sr_ap = ssl.raw_electrophysiology(band='ap', stream=False)
 ```
 
 ## Download spikesorted data
-Here we show how to download the spikeorted data. In assignment 1.1 you will be asked to use the ibl spikesorting pipieline
-to spikesort the raw data downloaded in section. If you are unable, however, to spikesort you can download the already spikesorted data 
-in the following way. We recommend downloading this data anyway so the next section (LINK) can be run in advance to generate
-the data required for the histology section
+Here we show how to download the spikeorted data. In assignment 1.8.2 you will be asked to use the ibl spikesorting pipieline
+to spikesort the raw data downloaded. If you are unable to run the spikesorting pipeline, however, you can download the already spikesorted data 
+in the following way. 
+
+We recommend downloading this data anyway so the next section can be run in advance to generate
+the data required for the histology assignment 2.5.2
 ```python
 eid, pname = one.pid2eid(pid)
-one.load_collection(eid, f'alf/{pname}/pykilosort', revision='2024-05-06', download_only=True)
+one.load_collection(eid, collection=f'alf/{pname}/pykilosort', download_only=True)
 ```
 
-## Download and extract histology data
-Here we show how to download the extra histology code
+## Download histology data
+Here we show how to download some extra data (raw ephys features and traced probe insertion info) that will be used to align the histology in assignment 1.8.2. The alignment tool 
+requires all the files to be in a single folder so in this code snippet we also ensure this by moving the downloaded features files to the same folder as the spikesorted data.
 ```python
-# need to download the lfp features and ap features and move them into the alf collection in order to launch
-# the gui in offline mode
-# also need to make the xyz_picks.json file using the picks that exist on the alyx database
+import shutil
+import json
+from pathlib import Path
 
-# Can download the lfp files
+# Download raw ephys features and move them into the alf collection that stores the spikesorting data
+# download lfp features
+lfp_psd = one.load_object(eid, 'ephysSpectralDensityLF', collection=f'raw_ephys_data/{pname}', download_only=True)
+lfp_rms = one.load_object(eid, 'ephysTimeRmsLF', collection=f'raw_ephys_data/{pname}', download_only=True)
 
-one.load_object(eid, '')
+# download ap features
+ap_rms = one.load_object(eid, 'ephysTimeRmsAP', collection=f'raw_ephys_data/{pname}', download_only=True)
 
-```
-The rms ap spectra we will extract from the raw data
-TODO make this such that the code in extract_rmsmap is in ibllib so not duplicated, allow the option to only compute
-on a subset of windows
-```
-from atlaselectrophysiology.extract_files import extract_rmsmap
-import spikeglx
+# Get the location of the spikesorted data and copy the raw_feature files to this folder
+ss_file = one.load_dataset(eid, 'spikes.times.npy', collection=f'alf/{pname}/pykilosort', download_only=True)
+alf_folder = ss_file.parent
 
-extract_rmsmap
+for file in lfp_psd + lfp_rms + ap_rms:
+  shutil.copy(file, alf_folder.joinpath(file.name))
 
-
+# Read in the user traced track for the probe insertion and save to file
+ins = one.alyx.rest('insertions', 'read', id=pid)
+xyz_picks = ins['json']['xyz_picks']
+data = {'xyz_picks': xyz_picks}
+with open(Path(alf_folder, 'xyz_picks.json'), "w") as f:
+  json.dump(data, f, indent=2)
 
 ```
 
 ## More info
-Here we have provided code to download the data necessary for the course. To explore more about the IBL data you can explore
+Here we have provided code to download the data necessary for the course. To explore more about the IBL data the ONE api you can explore
 the following resources
-- links to the ONE tutorials etc
+- [IBL documentation](https://int-brain-lab.github.io/iblenv/public_docs/public_introduction.html)
+- [ONE documentation](https://int-brain-lab.github.io/ONE/)
+- [Brainwide map introduction](https://colab.research.google.com/drive/1Ua-NlpYYZCIOF56xbsT9YR71Enkotd-b#scrollTo=7XzVVlhsVHMK)
+- [ONE tutorial](https://colab.research.google.com/drive/1y3sRI1wC7qbWqN6skvulzPOp6xw8tLm7#scrollTo=GSvi21Dn84wJ)
