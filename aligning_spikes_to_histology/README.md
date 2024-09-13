@@ -3,7 +3,7 @@
 ## Prerequisites
 - Install [ibl compatible environment](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/installation/README.md)
 - Download sample data
-  - Either by following [data download instructions] from the course (https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/data_access)
+  - Either by following [data download instructions](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/data_access) from the course
   - or downloading the ephys_alignment_sample_dataset from [here](https://ibl.flatironinstitute.org/public/)
 
 
