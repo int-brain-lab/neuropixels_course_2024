@@ -1,6 +1,6 @@
 # Displaying ibl single unit metrics in phy
 
-### Installation
+## Installation
 
 - Install [phy](https://github.com/cortex-lab/phy?tab=readme-ov-file#installation-instructions)
 - Install [ibl compatible environment](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/installation/README.md)
@@ -16,7 +16,7 @@ and also converts the units of the amplitude values in the spikesorting output f
 The ibl metrics use a median amplitude threshold based on volts so this is why this conversion is necessary to compute
 the metrics.
 
-If you already have files with the following names then your output has already been converted and you can skip to section 2 e.g
+If you already have files with the following names then your output has already been converted and you can skip to **section 2** e.g
 - spikes.amps.npy
 - spikes.clusters.npy
 - spikes.samples.npy
@@ -25,7 +25,7 @@ If you already have files with the following names then your output has already 
 - clusters.waveforms.npy
 - etc
 
-If a clusters.metrics.pqt file also already exists then the metrics have already been computed and you can skip to section 3
+If a clusters.metrics.pqt file also already exists then the metrics have already been computed and you can skip to **section 3**
 
 If not, the following code can be used to convert your spikesorting output
 ```python
@@ -51,7 +51,7 @@ ks2_to_alf(
 
 ```
 
-The converted data will be saved in the location `print(output_path)`
+The converted data will be saved in the location `print(out_path)`
 
 
 ### 2. Compute ibl single unit metrics
