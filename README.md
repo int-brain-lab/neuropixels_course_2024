@@ -20,5 +20,5 @@ Please refer to the instructions in the individual folders for the following ass
 **Day 2**
 - [2.5.1 Practical: Quality control with Bombcell and IBL metrics](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/quality_control_for_np_data)
 - [2.5.2 Practical: Align data to histology](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/aligning_spikes_to_histology)
-- [2.5.3 Practical: Analyze neural activity on the IBL website](TODO need link to instructions)
+- [2.5.3 Practical: Analyze neural activity on the IBL website](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/functional_analysis)
 
