@@ -32,8 +32,11 @@ print(alf_folder)
 ```
 
 ## Objective
-Use the guidance from the lecture to align the example sessions
+Use the alignment gui to use electrophysiological features to align the location of the electrodes in the brain.
 
-
+Some useful features to look out for in this dataset are 
+- The LFP power spectrum in the hippocamapus
+- The firing rate in the thalamus and CA1 regions
+  
 ## Further resources
 - [iblapps alignment gui wiki](https://github.com/int-brain-lab/iblapps/wiki)
