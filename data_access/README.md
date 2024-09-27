@@ -27,7 +27,8 @@ ssl = SpikeSortingLoader(pid=pid, one=one)
 
 
 ## Download raw data 
-This code snippet shows how to download the raw ap data which is required for assignments 1.8.2 and 1.8.3.
+This code snippet shows how to download the raw ap data which is required for assignments 1.8.2 where you will run the IBL spikesorting pipeline on 
+a dataset. 
 
 N.B. The raw data for each insertion is large, typically between 50 - 80 Gb. You will need to make sure you have enough disk space
 and note that the download may also take a while.
@@ -48,7 +49,7 @@ one.load_collection(eid, collection=f'alf/{pname}/pykilosort', download_only=Tru
 ```
 
 ## Download histology data
-Here we show how to download some extra data (raw ephys features and traced probe insertion info) that will be used to align the histology in assignment 1.8.2. The alignment tool 
+Here we show how to download some extra data (raw ephys features and traced probe insertion info) that will be used to align the histology in assignment 2.5.2. The alignment tool 
 requires all the files to be in a single folder so in this code snippet we also ensure this by moving the downloaded features files to the same folder as the spikesorted data.
 ```python
 import shutil
