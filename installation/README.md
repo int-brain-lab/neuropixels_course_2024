@@ -27,7 +27,7 @@ The new environment can be activated using,
 ## Install ibl packages
 
 With your iblenv python environment activated (`conda activate iblenv`) install the following python packages
-```commandline
+```shell
 pip install ONE-api
 pip install ibllib
 pip install git+https://github.com/int-brain-lab/iblapps.git

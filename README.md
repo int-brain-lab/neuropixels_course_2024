@@ -14,7 +14,7 @@ If you run into any issues during the installation or data download process plea
 Please refer to the instructions in the individual folders for the following assignments
 
 **Day 1**
-- [1.8.2 Practical: Spike sort raw data](TODO need link to instructions)
+- [1.8.2 Practical: Spike sort raw data](ibl-sorter/README.md)
 - [1.8.3 Practical: Inspect sorting results in viewEphys](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/viewephys)
 
 **Day 2**
