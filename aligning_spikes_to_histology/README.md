@@ -25,11 +25,14 @@ by typing the following into an ipython terminal
 from one.api import ONE
 one = ONE()
 pid = 'dab512bd-a02d-4c1f-8dbc-9155a163efc0'
+eid, pname = one.pid2eid(pid)
 
 ss_file = one.load_dataset(eid, 'spikes.times.npy', collection=f'alf/{pname}/pykilosort', download_only=True)
 alf_folder = ss_file.parent
 print(alf_folder)
 ```
+
+You should select the folder pykilosort/#2024-05-06#
 
 ## Objective
 Use the alignment gui to use electrophysiological features to align the location of the electrodes in the brain.
