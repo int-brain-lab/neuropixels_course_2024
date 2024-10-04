@@ -21,7 +21,7 @@ of the `clusters.metrics.pqt` file can be found in the following way,
 ```python
 from one.api import ONE
 one = ONE()
-pid = 'dab512bd-a02d-4c1f-8dbc-9155a163efc0'
+pid = '6358854e-51d2-47de-a278-5cbfd155feb6' # note this pid is different from the rest of the course
 eid, pname = one.pid2eid(pid)
 metrics_file = one.load_dataset(eid, 'clusters.metrics.pqt', collection=f'alf/{pname}/pykilosort', download_only=True)
 print(metrics_file)
@@ -62,7 +62,7 @@ In the cluster view you should see four additional columns
 ## Additional Resources
 
 ### Definition of IBL metrics
-For more information on the IBL single unit metrics please refer to the [spike sorting white paper](https://figshare.com/articles/online_resource/Spike_sorting_pipeline_for_the_International_Brain_Laboratory/19705522?file=35040628).
+For more information on the IBL single unit metrics please refer to the [spike sorting white paper](https://doi.org/10.6084/m9.figshare.19705522).
 
 
 ### Computing IBL metrics on your own data
