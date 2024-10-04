@@ -1,10 +1,10 @@
 ## 1.8.3 Practical: Inspect sorting results in viewEphys
 
-### Prerequisites
+## Prerequisites
 - Install [IBL compatible environment](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/installation/README.md)
 - Download sample data, following the [data download instructions](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/data_access) from the course
 
-### Objective
+## Objective
 This tutorial will show you how to:
 
 - Load a snippet of raw data, and destripe it
@@ -17,8 +17,8 @@ You will investigate:
 - Whether the spike detection is subjectively good
 - Whether there is information contained in the spikes rejected as part of bad units
 
-### Assignment
+## Assignment
 Please refer to this [ipython notebook](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/viewephys/Check%20output%20of%20spike%20sorting.ipynb) for the full assignment.
 
-### Additional resources
+## Additional resources
 [Viewephys github repo](https://github.com/int-brain-lab/viewephys)
