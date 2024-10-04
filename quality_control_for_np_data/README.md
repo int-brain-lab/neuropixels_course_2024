@@ -1,12 +1,76 @@
 # Displaying ibl single unit metrics in phy
 
-## Installation
+## Prerequisites
 
 - Install [phy](https://github.com/cortex-lab/phy?tab=readme-ov-file#installation-instructions)
-- Install [ibl compatible environment](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/installation/README.md)
+- Install [IBL compatible environment](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/installation/README.md)
+
+## Information
+This is an optional extension to the Bombcell quality control metrics assignment. Here we provide
+the option to additionally display the IBL metrics in phy in order to compare them to the Bombcell metrics.
+
+## Objective
+Add the IBLMetricsPlugin to phy and display the IBL metrics in the phy cluster view.
+
+## Assignment
+
+### 1. Copy IBL metrics to phy path
+Copy the `clusters.metrics.pqt` file to the folder that contains the data you want to launch phy from. The location
+of the `clusters.metrics.pqt` file can be found in the following way,
+
+```python
+from one.api import ONE
+one = ONE()
+pid = 'dab512bd-a02d-4c1f-8dbc-9155a163efc0'
+eid, pname = one.pid2eid(pid)
+metrics_file = one.load_dataset(eid, 'clusters.metrics.pqt', collection=f'alf/{pname}/pykilosort', download_only=True)
+print(metrics_file)
+```
+
+### 2. Add the IBLMetricsPlugin to phy
+To display the ibl metrics in the cluster view when launching phy you will need to add the plugin `ibl_metrics.py` provided in 
+this folder to your phy config path. This can be done in the following way
+
+Copy the `ibl_metrics.py` file into the folder `~/.phy/plugins/`. If the `plugins` folder does not exist you may have to create it.
+
+Edit the  `~/.phy/phy_config.py` to include the following line at the end of the file.
+
+```python
+c.TemplateGUI.plugins = ['IBLMetricsPlugin']
+```
+
+For more information see the original [phy documentation](https://phy.readthedocs.io/en/latest/plugins/) on plugins.
+
+If you want the ibl metrics to be computed on the fly for clusters that are merged/ split during manual curation you will
+need to install ibllib into your phy environment. This can be done by doing `pip install ibllib`.
+
+### 3. Launch phy and browse metrics
+Navigate to the folder containing your spikesorted data. Activate your phy environment and launch phy using the following
+command,
+
+```shell
+phy template-gui params.py
+```
+
+In the cluster view you should see four additional columns
+- amp_median
+- noise_cutoff
+- max_confidence
+- label
 
 
-### 1. Convert spikesorted output to alf format
+## Additional Resources
+
+### Definition of IBL metrics
+For more information on the IBL single unit metrics please refer to the [spike sorting white paper](https://figshare.com/articles/online_resource/Spike_sorting_pipeline_for_the_International_Brain_Laboratory/19705522?file=35040628).
+
+
+### Computing IBL metrics on your own data
+In the sample data used for the course the IBL cluster metrics have already been computed and are available for use. However, if you have your own spikesorted data that
+has not been run through the IBL spikesorting pipeline then these metrics will not be computed. The code snippets below walk you through how you can compute these IBL metrics on
+your own data.
+
+#### 1. Convert spikesorted output to alf format
 If your spikesorting output is not already in the ibl alf format you will need to convert it using the `alfConverter`
 in phylib
 
@@ -25,9 +89,10 @@ If you already have files with the following names then your output has already 
 - clusters.waveforms.npy
 - etc
 
-If a clusters.metrics.pqt file also already exists then the metrics have already been computed and you can skip to **section 3**
+If a `clusters.metrics.pqt` file also already exists then the metrics have already been computed and you can skip to **section 3**
 
-If not, the following code can be used to convert your spikesorting output
+If not, the following code can be used to convert your spikesorting output,
+
 ```python
 from pathlib import Path
 from ibllib.ephys.spikes import ks2_to_alf
@@ -54,7 +119,7 @@ ks2_to_alf(
 The converted data will be saved in the location `print(out_path)`
 
 
-### 2. Compute ibl single unit metrics
+#### 2. Compute ibl single unit metrics
 
 The single unit metrics can be computed from the alf converted spikesorting from section 1 using the following code
 
@@ -65,7 +130,7 @@ from ibllib.pipes.ephys_tasks import CellQCMixin
 qc_file, _, _ = CellQCMixin.compute_cell_qc(out_path)
 ```
 
-### 3. Copy the metrics to the original spikesorting output (optional)
+#### 3. Copy the metrics to the original spikesorting output (optional)
 You can copy the computed ibl metrics to your original spikesorting folder. This will allow you to view your original spikesorted data. (The only difference between the alf 
 converted data is that the units of the waveforms, spike amplitudes and cluster amplitudes will differ, they will be in volts rather than the units output by the spikesorter)
 
@@ -73,18 +138,3 @@ converted data is that the units of the waveforms, spike amplitudes and cluster 
 import shutil
 shutil.copy(qc_file, ks_path.joinpath(qc_file.name))
 ```
-
-### 4. Add the ibl_metrics plugin to phy
-
-To display the ibl metrics in the cluster view when launching phy you will need to add the plugin `ibl_metrics.py` provided in 
-this folder to your phy config path. This can be done in the following way
-
-Copy the `ibl_metrics.py` file into the folder `~/.phy/plugins/`. If the `plugins` folder does not exist you may have to create it.
-
-Edit the  `~/.phy/phy_config.py` to include the following line at the end of the file
-```python
-c.TemplateGUI.plugins = ['IBLMetricsPlugin']
-```
-
-If you want the ibl metrics to be computed on the fly for clusters that are merged/ split during manual curation you will
-need to install ibllib into your phy environment. This can be done by `pip install ibllib`

@@ -27,7 +27,7 @@ The new environment can be activated using,
 ## Install ibl packages
 
 With your iblenv python environment activated (`conda activate iblenv`) install the following python packages
-```commandline
+```shell
 pip install ONE-api
 pip install ibllib
 pip install git+https://github.com/int-brain-lab/iblapps.git
@@ -46,13 +46,18 @@ ONE.setup(base_url='https://openalyx.internationalbrainlab.org', silent=True)
 one = ONE(password='international')
 ```
 
+Once connected correctly the output of `print(one)` should give,
+```python
+One (online, https://openalyx.internationalbrainlab.org)
+```
+
 ## Confirming that the installation has worked
 ### Checking ibllib
 To check the installation of ibllib has worked correctly, open a python or ipython terminal and type the following
 ```
 from brainbox.io.one import SpikeSortingLoader
 ```
-If this imports without any errors then ibllib has been succesfully installed
+If this imports without any errors then ibllib has been succesfully installed.
 
 ### Checking the viewephys gui
 To check the installation of the viewephys gui (used in assignment 1.8.3) has worked correctly, open a terminal and type the following
