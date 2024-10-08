@@ -12,5 +12,5 @@ Curate the matches using the GUI
 ## Assignment
 Follow [the example notebook](https://github.com/EnnyvanBeest/UnitMatch/blob/main/UnitMatchPy/Demo%20Notebooks/UMPy_example.ipynb)
 to match neurons from the two recordings in the example data you downloaded. 
-Inspect the output, and launch the GUI to inspect individual matches. 
+Inspect the output, and launch the GUI to inspect individual matches (reference guide [here](https://github.com/EnnyvanBeest/UnitMatch/blob/main/UnitMatchPy/Demo%20Notebooks/GUI_Reference_Guide.md)). 
 
