@@ -8,6 +8,7 @@ will be used during the assignments:
 - [Link to installation instructions for the IBL-related content](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/installation)
 - [Link to data download instructions for the IBL-related content](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/data_access)
 - [Link to preparation instructions for UnitMatch](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/UnitMatch#prerequisites)
+- Link to installation instructions for [Bombcell](https://github.com/Julie-Fabre/bombcell) and [phy](https://github.com/cortex-lab/phy?tab=readme-ov-file#installation-instructions)
 
 If you run into any issues during the installation or data download process please write a message in the Neuropixels course dedicated slack channel or make an in [issue in this repository](https://github.com/int-brain-lab/neuropixels_course_2024/issues).
 
