@@ -31,7 +31,7 @@ With your iblenv python environment activated (`conda activate iblenv`) install 
 pip install ONE-api
 pip install ibllib
 pip install git+https://github.com/int-brain-lab/iblapps.git
-pip install viewephys
+pip install git+https://github.com/int-brain-lab/viewephys.git
 pip install ipython
 ```
 
