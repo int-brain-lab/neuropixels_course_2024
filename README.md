@@ -8,7 +8,7 @@ will be used during the assignments:
 - [Link to installation instructions for the IBL-related content](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/installation)
 - [Link to data download instructions for the IBL-related content](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/data_access)
 - [Link to preparation instructions for UnitMatch](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/UnitMatch#prerequisites)
-- Link to installation instructions for [Bombcell](https://github.com/Julie-Fabre/bombcell). For now, bombcell is in MATLAB-only. If you need a MATLAB license, see the details on slack or message us: [julie.mfabre@gmail.com](mailto:julie.mfabre@gmail.com)
+- Link to installation instructions for [Bombcell](https://github.com/Julie-Fabre/bombcell). For now, bombcell is in MATLAB-only, but a Python version is coming in the next month. If you need a MATLAB license, see the details on slack or message us: [julie.mfabre@gmail.com](mailto:julie.mfabre@gmail.com)
 - Link to installation instructions for [phy](https://github.com/cortex-lab/phy?tab=readme-ov-file#installation-instructions)
 - [Link to the Paxinos Atlas](https://drive.google.com/file/d/1aOHip11jth4LXYRG9qthwddmT1OxCOKX/view?usp=sharing)
 
