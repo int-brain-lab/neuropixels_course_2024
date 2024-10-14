@@ -14,8 +14,8 @@ If you run into any issues during the installation or data download process plea
 Please refer to the instructions in the individual folders for the following assignments
 
 **Day 1**
-- [1.8.2 Practical: Spike sort raw data](ibl-sorter/README.md)
-- [1.8.3 Practical: Inspect sorting results in viewEphys](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/viewephys)
+- [1.8.2 Practical: Spike sort raw data](viewephys/README.md)
+- [1.8.3 Practical: Inspect sorting results in viewEphys](viewephys/README.md)
 
 **Day 2**
 - [2.5.1 Practical: Quality control with Bombcell and IBL metrics](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/quality_control_for_np_data)

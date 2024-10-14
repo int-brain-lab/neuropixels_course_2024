@@ -4,7 +4,7 @@
 This tutorial will show you how to:
 
 ### Inspect a raw data file prior spike sorting
-[A_viewephys_on_raw_data.md](/viewephys/A_viewephys_on_raw_data.md)
+[A_viewephys_on_raw_data.md](A_viewephys_on_raw_data.md)
 - Open a spikeglx recording, during acquisition or after the fact and look at the raw data quality
 - Look at the bad channel detection and adjust thresholds if necessary
 
