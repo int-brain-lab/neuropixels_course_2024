@@ -18,9 +18,7 @@ If you run into any issues during the installation or data download process plea
 Please refer to the instructions in the individual folders for the following assignments.
 
 **Day 1**
-- 1.8.1 Practical: plan a trajectory. Instructions given online. Use Pinpoint [here](https://data.virtualbrainlab.org/Pinpoint/).
-- [1.8.2 Practical: Spike sort raw data](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/ibl-sorter)
-- [1.8.3 Practical: Inspect sorting results in viewEphys](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/viewephys)
+- [1.8.2 and 1.8.3 Practical: Spike sort raw data and inspect results with viewephys](viewephys/README.md)
 
 **Day 2**
 - 2.5.1 Practical: Quality control with Bombcell, Phy and IBL metrics:
