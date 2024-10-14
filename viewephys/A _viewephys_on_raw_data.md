@@ -7,7 +7,7 @@ On a terminal activate your environment, and type the following command
 viewephys
 ```
 
-![gui file](./viewephys/assets/viewephys.png)
+![gui file](/viewephys/assets/viewephys.png)
 
 - Click on file, and go to the place where you downloaded the raw data.  This is usually in your `Downloads` folder in your home directory:
 `~/Downloads/ONE/openalyx.internationalbrainlab.org/danlab/Subjects/DY_016/2020-09-12/001/raw_ephys_data/probe00/_spikeglx_ephysData_g0_t0.imec0.ap.cbin`
@@ -29,7 +29,7 @@ On the **destriped data**, do you see any sign of:
 - Saturation / Bad channel / Noise
 - Can you locate some events that seem to be propagating from top to bottom ? 
 
-![side by side](/viewephys/asset/viewephys_sidebyside.png)
+![side by side](/viewephys/assets/viewephys_sidebyside.png)
 
 
 ### Open a live recording
