@@ -39,9 +39,6 @@ This tutorial will show you how to:
 
 ### Data
 - Download sample data, following the [data download instructions](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/data_access) from the course
-=======
-## Assignment
-Please refer to this [ipython notebook](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/viewephys/Check%20output%20of%20spike%20sorting.ipynb) for the full assignment.
 
 ## Additional resources
 [Viewephys github repo](https://github.com/int-brain-lab/viewephys)
