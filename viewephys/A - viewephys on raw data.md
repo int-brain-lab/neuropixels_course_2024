@@ -6,9 +6,11 @@ On a terminal activate your environment, and type the following command
 ```shell
 viewephys
 ```
+
+![gui file](./viewephys/assets/viewephys.png)
+
 - Click on file, and go to the place where you downloaded the raw data.  This is usually in your `Downloads` folder in your home directory:
 `~/Downloads/ONE/openalyx.internationalbrainlab.org/danlab/Subjects/DY_016/2020-09-12/001/raw_ephys_data/probe00/_spikeglx_ephysData_g0_t0.imec0.ap.cbin`
-![/viewephys/assets/viewephys.png]
 - check the destripe box
 - move the slider to the middle of the recording ~1700 seconds
 - adjust the window size to your liking
@@ -27,7 +29,7 @@ On the **destriped data**, do you see any sign of:
 - Saturation / Bad channel / Noise
 - Can you locate some events that seem to be propagating from top to bottom ? 
 
-![/viewephys/asset/viewephys_sidebyside.png]
+![side by side](/viewephys/asset/viewephys_sidebyside.png)
 
 
 ### Open a live recording
@@ -66,7 +68,7 @@ raw = sr[first:last, :-sr.nsync].T
 channel_labels, _ = detect_bad_channels(raw, fs=sr.fs, display=True)
 ```
 
-![/viewephys/assets/channel_detect_ap.png]
+![channels ap](/viewephys/assets/channel_detect_ap.png)
 
 Note that this can also be done on the LFP band in this manner:
 
@@ -80,4 +82,5 @@ raw = sr[first:last, :-sr.nsync].T
 channel_labels, _ = detect_bad_channels(raw, fs=sr.fs, display=True)
 ```
 
-![/viewephys/assets/channel_detect_lf.png]
+![channels lf](/viewephys/assets/channel_detect_lf.png)
+

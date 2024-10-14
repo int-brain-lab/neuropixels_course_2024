@@ -34,6 +34,7 @@ The full output of the spike sorter is available on a S3 bucket [here](https://i
 ### Checking the whitening 
 As we have seen during the lectures the whitening process can have a drastic impact on the spike sorting outcome. 
 Here a good way is to look at the estimated covariance matrix. In this case most of the energy is contained on the diagonal, and we can see the reference channel 191 we detected before.
+
 ![Covariance matrix](/viewephys/assets/_iblqc_.covariance_matrix.png)
 
 After inversion the whitening matrix is the operator we apply to the data. Here we can see a flattened rendition of the diagonal along with the conditioning number.
@@ -44,8 +45,7 @@ The conditioning is a good estimate of how stable is the operator. Values in the
 ### Drift estimate
 The sorter has a motion correction drift estimation and correction component.  Although we output overall recording drift RMS  and cululative absolute drift per hour for individual units, this is a feature of the spike sorting that is useful to visualize.
 In this particular instance, the estimated drift is very small, and we can hardly see a difference before and after srift application.
+
 ![Drift estimate](/viewephys/assets/_iblqc_.drift_estimate.png)
+
 ![Drift registered raster](/viewephys/assets/_iblqc_.drift_registered.png)
-
-
-
