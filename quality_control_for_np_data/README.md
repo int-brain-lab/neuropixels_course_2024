@@ -4,10 +4,11 @@
 
 - Install [phy](https://github.com/cortex-lab/phy?tab=readme-ov-file#installation-instructions)
 - Install [IBL compatible environment](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/installation/README.md)
+- Download and unzip the file `dataset.zip` from [here](https://rdr.ucl.ac.uk/articles/dataset/Recording_with_a_Neuropixels_probe/25232962/1)
+- Download the file `Hopkins_20160722_g0_t0.imec.ap.meta` [here](https://rdr.ucl.ac.uk/articles/dataset/Recording_with_a_Neuropixels_probe/25232962/1) and place it in the unzipped dataset folder.
 
 ## Information
-This is an optional extension to the Bombcell quality control metrics assignment. Here we provide
-the option to additionally display the IBL metrics in phy in order to compare them to the Bombcell metrics.
+This is an optional additional assignment that shows how to compute the IBL metrics on a non IBL dataset and view the IBL metrics in phy. 
 
 ## Objective
 Compute the IBL metrics on the sample dataset and then add the IBLMetricsPlugin to phy and display the IBL metrics in the phy cluster view.
@@ -43,10 +44,11 @@ from pathlib import Path
 from ibllib.ephys.spikes import ks2_to_alf
 from ibllib.pipes.ephys_tasks import SpikeSorting
 
-# Path to your spikesorting data
-ks_path = Path('/Users/admin/ks_data')
-# Path to your raw ephys ap spikeglx data, we must have a .ap.meta file
-ap_path = Path('/Users/admin/raw_data')
+# Path to your spikesorting data (e.g the dataset folder)
+ks_path = Path('/Users/admin/dataset')
+# Path to your raw ephys ap spikeglx data, we must have an .ap.meta file
+# (in this case the raw ephys path is the same as the spikesorting path)
+ap_path = Path('/Users/admin/dataset')
 ap_file = next(ap_path.rglob('*.ap.*bin'), None)
 meta_file = next(ap_path.rglob('*.ap.*meta'), None)
 # Path to save alf converted data, must be different from the original spikesorting data
