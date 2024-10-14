@@ -1,6 +1,9 @@
 # 1.8.2 and 1.8.3 Practical: Spike sort raw data and inspect results with viewephys
 
 ## Introduction
+
+The full description of spike sorting at IBL is in our [white paper !](https://figshare.com/articles/online_resource/Spike_sorting_pipeline_for_the_International_Brain_Laboratory/19705522?file=35040628)
+
 This tutorial will show you how to:
 
 ### Inspect a raw data file prior spike sorting

@@ -114,7 +114,7 @@ channel_labels, _ = detect_bad_channels(raw, fs=sr.fs, display=True)
 Note that this can also be done on the LFP band in this manner:
 
 ```python
-# here set stream to true if you don't have the raw on disk
+# here set stream to False if you already have the raw data on disk
 sr = ssl.raw_electrophysiology(stream=True, band='lf')  
 t0 = 600
 first, last = (int(t0 * sr.fs), int((t0 + 10) * sr.fs))

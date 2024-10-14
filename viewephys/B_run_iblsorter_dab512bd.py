@@ -4,7 +4,7 @@ from one.api import ONE
 from brainbox.io.one import SpikeSortingLoader
 from iblatlas.atlas import BrainRegions
 
-from iblsorter.ibl import run_spike_sorting_ibl, ibl_pykilosort_params, download_test_data
+from iblsorter.ibl import run_spike_sorting_ibl, ibl_pykilosort_params
 
 # we download the raw data from the IBL server
 one = ONE(base_url='https://openalyx.internationalbrainlab.org')

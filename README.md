@@ -28,3 +28,6 @@ Please refer to the instructions in the individual folders for the following ass
 - [2.5.3 Practical: Analyze neural activity on the IBL website](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/functional_analysis)
 - [2.5.4 Practical: Match neurons across days with UnitMatch](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/UnitMatch#assignment-match-neurons-across-days-with-unitmatch-254)
 
+
+## Reference
+[IBL spike sorting white paper](https://figshare.com/articles/online_resource/Spike_sorting_pipeline_for_the_International_Brain_Laboratory/19705522?file=35040628)
