@@ -16,9 +16,8 @@ This tutorial will show you how to:
 ### Overlay sorter result over raw-data
 [C_Overlay_sorter_results_on_raw_data.ipynb](/viewephys/C_Overlay_sorter_results_on_raw_data.ipynb)
 - Load a snippet of raw data, and destripe it
-- Load the corresponding spike sorting data occuring during this raw data snippet
+- Load the corresponding spike sorting data occurring during this raw data snippet
 - Place the information into viewephys, and navigate the user interface
-
 
 **You will investigate**:
 - What signals are visible onto the raw data, giving you a sense of why we want to perform destriping
@@ -28,6 +27,7 @@ This tutorial will show you how to:
 - Whether the spike detection is subjectively good
 - Whether there is information contained in the spikes rejected as part of bad units
 
+
 ## Pre-requisite
 
 ### Python
@@ -36,3 +36,10 @@ This tutorial will show you how to:
 
 ### Data
 - Download sample data, following the [data download instructions](https://github.com/int-brain-lab/neuropixels_course_2024/tree/main/data_access) from the course
+=======
+## Assignment
+Please refer to this [ipython notebook](https://github.com/int-brain-lab/neuropixels_course_2024/blob/main/viewephys/Check%20output%20of%20spike%20sorting.ipynb) for the full assignment.
+
+## Additional resources
+[Viewephys github repo](https://github.com/int-brain-lab/viewephys)
+
