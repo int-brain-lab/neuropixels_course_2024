@@ -1,6 +1,8 @@
 # Use Viewephys to look at raw data
 
 ## Step 1 : Open a raw recording
+
+### Open data with the fully downloaded raw data file
 On a terminal activate your environment, and type the following command 
 
 ```shell
@@ -31,7 +33,7 @@ On the **destriped data**, do you see any sign of:
 
 ![side by side](/viewephys/assets/viewephys_sidebyside.png)
 
-### Open the data without the full file
+### Open the data without the full raw data file
 If you haven't downloaded the full raw data file you can open the same display with the following commands from an `ipython` 
 terminal with the IBL environment activated `conda activate iblenv`
 
@@ -57,8 +59,8 @@ sr_ap = ssl.raw_electrophysiology(band="ap")
 # Load the raw data snippet and destripe it
 t0 = 1700  # Seconds in the recording
 s0 = int(sr_ap.fs * t0)
-int0 = int(0.75 * sr_ap.fs)  # We take 0.09 second of data
-int1 = int(1 * sr_ap.fs)  # We take 0.09 second of data
+int0 = int(0.75 * sr_ap.fs)  # We take 0.75 second after t0
+int1 = int(1 * sr_ap.fs)  # Up to 1 second after t0
 raw_ap = sr_ap[s0 + int0:s0 + int1, :-sr_ap.nsync].T
 raw_ap = scipy.signal.sosfiltfilt(scipy.signal.butter(3, 300, 'hp', fs=sr_ap.fs, output='sos'), raw_ap)
 destriped = destripe(raw_ap, sr_ap.fs, channel_labels=channels.labels)
